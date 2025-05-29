@@ -1,6 +1,6 @@
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import { useState } from 'react';
 import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function CadastroPassageiro() {
   const router = useRouter();
@@ -20,7 +20,7 @@ export default function CadastroPassageiro() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Cadastro de novo passageiro</Text>
+      <Text style={styles.titulo}>Cadastro de novo pass</Text>
 
       <Text>Nome Completo</Text>
       <TextInput style={styles.input} value={nome} onChangeText={setNome} />

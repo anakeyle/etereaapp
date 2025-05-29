@@ -34,7 +34,7 @@ export default function CadastroPassageiro() {
       <Text>Senha</Text>
       <TextInput style={styles.input} value={senha} onChangeText={setSenha} secureTextEntry />
 
-      <Button title="Cadastrar" onPress={handleCadastrar} />
+      <Button  title="Cadastrar" onPress={handleCadastrar} />
     </View>
   );
 }
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc' }})
+    borderColor: '#E91E63' }})

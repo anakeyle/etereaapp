@@ -6,24 +6,46 @@ export default function Home() {
       <Text style={styles.header}>Seja Bem-vindo(a)!</Text>
 
       <Image 
-        source={{ uri: 'https://www.sephora.com/productimages/sku/s2667866-main-zoom.jpg?imwidth=612' }}
+        source={require('../../assets/images/aesthetic.png')}
         style={styles.banner}
+
       />
 
       <Text style={styles.sectionTitle}>Destaques</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.carousel}>
+       
         <Image 
-          source={{ uri: 'https://www.sephora.com/productimages/sku/s2715675-main-zoom.jpg?imwidth=612' }} 
-          style={styles.productImage}
+           source={{ uri: 'https://encurtador.com.br/O2VPw' }} 
+           style={{ width: 200, height: 200 }}
+        />
+       <Image 
+          source={{ uri: 'https://encurtador.com.br/hnbBB' }} 
+          style={{ width: 200, height: 200 }}
+        />
+         <Image 
+          source={{ uri: 'https://encurtador.com.br/WocYB' }} 
+          style={{ width: 200, height: 200 }}
         />
         <Image 
-          source={{ uri: 'https://www.sephora.com/productimages/sku/s2698275-main-zoom.jpg?imwidth=612' }} 
-          style={styles.productImage}
+          source={{ uri: 'https://shre.ink/e8xQ' }} 
+          style={{ width: 200, height: 200 }}
+        />
+         <Image 
+          source={{ uri: 'https://www.mundodosdecants.com.br/wp-content/uploads/2021/03/Ocean-di-Gioia-Giorgio-Armani.jpg' }} 
+          style={{ width: 200, height: 200 }}
+        />
+         <Image 
+          source={{ uri: 'https://epocacosmeticos.vteximg.com.br/arquivos/ids/716136/1.-3348900378551-3348900378575-3348900425309.jpg.jpg?v=638690019195730000' }} 
+          style={{ width: 200, height: 200 }}
         />
         <Image 
-          source={{ uri: 'https://www.sephora.com/productimages/sku/s2631277-main-zoom.jpg?imwidth=612' }} 
-          style={styles.productImage}
+          source={{ uri: 'https://www.sephora.com.br/dw/image/v2/BFJC_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/pt_BR/dw29cc82dc/images/Color%20BR/guerlain/OMBREG/3346470436534_1_1500px.jpg?sw=1200&sh=1200&sm=fit' }} 
+          style={{ width: 200, height: 200 }}
         />
+       
+
+
+
       </ScrollView>
 
       <Text style={styles.sectionTitle}>Categorias</Text>

@@ -7,11 +7,11 @@ const Index = () => {
     <View style={{ backgroundColor: '#FFF', flex: 1, justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 32, paddingTop: 60 }}>
       
     
-      <Image  style={{ width: 150, height: 150 }} source={require('../../assets/images/1.png')} />
+      <Image  style={{ width: 150, height: 150 }} source={require('../../assets/images/favicon.png')} />
 
 
       <Text style={{ fontSize: 32, fontWeight: '500', marginTop: 16, marginBottom: 32, textAlign: 'center' }}>
-        WELCOME TO ETEREAaaaaaaaaaaaa
+        WELCOME TO ETEREA
       </Text>
       <Link href="/auth/cadastro" asChild>
       <TouchableOpacity

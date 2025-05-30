@@ -61,7 +61,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Nome</Text>
+        <Text style={styles.label}>NOMEE</Text>
         <TextInput 
           style={styles.input} 
           value={name}

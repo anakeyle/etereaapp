@@ -1,55 +1,129 @@
+import React, { useState } from 'react';
+import { 
+  SafeAreaView, 
+  View, 
+  Text, 
+  TextInput, 
+  Button, 
+  StyleSheet, 
+  Alert, 
+  ActivityIndicator 
+} from 'react-native';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function CadastroPassageiro() {
+export default function App() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [senha, setSenha] = useState('');
 
-  const handleCadastrar = () => {
-    // Aqui você poderia adicionar lógica para enviar os dados para API.
-    console.log({ nome, email, telefone, senha });
+  const handleSubmit = async () => {
+    if(!name || !email) {
+      Alert.alert('Erro', 'Por favor, preencha nome e email.');
+      router.push('/auth/home');
+      return;
+    }
 
-    // Correto: não usar extensão .tsx
-    router.push('/auth/home');  // ou '/home', depende de como está seu app
+  
+
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://sua-api.com/endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro na requisição');
+      }
+
+      const data = await response.json();
+      Alert.alert('Sucesso', 'Dados salvos com sucesso!');
+      setName('');
+      setEmail('');
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível salvar os dados.');
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Cadastro de novo pass</Text>
-
-      <Text>Nome Completo</Text>
-      <TextInput style={styles.input} value={nome} onChangeText={setNome} />
-
-      <Text>Email</Text>
-      <TextInput style={styles.input} value={email} onChangeText={setEmail} />
-
-      <Text>Telefone/Whatsapp</Text>
-      <TextInput style={styles.input} value={telefone} onChangeText={setTelefone} />
-
-      <Text>Senha</Text>
-      <TextInput style={styles.input} value={senha} onChangeText={setSenha} secureTextEntry />
-
-      <Button title="Cadastrar" onPress={handleCadastrar} />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Cadastro</Text>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Nome</Text>
+        <TextInput 
+          style={styles.input} 
+          value={name}
+          onChangeText={setName}
+          placeholder="Digite seu nome"
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Email</Text>
+        <TextInput 
+          style={styles.input} 
+          value={email}
+          onChangeText={setEmail}
+          placeholder="Digite seu email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        {loading ? (
+          <ActivityIndicator size="large" color="#E91E63" />
+        ) : (
+          <Button title="Enviar" onPress={handleSubmit} color="#E91E63" />
+        )}
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: '#fff'
+    padding: 20,
+    backgroundColor: '#fcd9e5',
+    justifyContent: 'center',
   },
-  titulo: {
-    fontSize: 20,
+  title: {
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20
+    textAlign: 'center',
+    marginBottom: 30,
+    color: '#E91E63',
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  label: {
+    marginBottom: 6,
+    fontSize: 16,
+    color: '#333',
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc' }})
+    borderColor: '#CCC',
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    fontSize: 16,
+    backgroundColor: '#FFF',
+  },
+  buttonContainer: {
+    marginTop: 10,
+  }
+});
+

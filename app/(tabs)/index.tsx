@@ -9,7 +9,7 @@ const index = () => {
      
      //logo aqui
       <Text style={{ fontSize: 32, fontWeight: '500', marginTop: 16, marginBottom: 32, textAlign: 'center' }}>
-        WELCOME TO ETEREA
+        WELCOME TO ETEREAaaaaaaaaaaaa
       </Text>
       <Link href="/auth/cadastro">
       <Text

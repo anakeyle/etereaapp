@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     marginVertical: 16
   },
   banner: {
-    width: 1040, height: 126,
+    width: 2040, height: 226,
      alignSelf: 'center', // <-- ESSENCIAL PARA CENTRALIZAR
     marginVertical: 10  // Opcional, espaço acima/abaixo
   },

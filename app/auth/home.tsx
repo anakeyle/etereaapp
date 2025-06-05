@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity,TextInput, } from 'react-native';
 import { Dimensions } from 'react-native';
 import React from 'react';
+import { useState } from 'react';
+const [search, setSearch] = useState('');
 
 
 
@@ -8,6 +10,42 @@ export default function Home() {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Seja Bem-vindo(a)!</Text>
+      <View style={{
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: 10,
+  backgroundColor: '#fff',
+  borderBottomWidth: 1,
+  borderBottomColor: '#ccc'
+}}>
+  
+  {/* Logotipo */}
+  <Image
+    source={{ uri: 'https://1000logos.net/wp-content/uploads/2021/04/Sephora-logo.png' }}
+    style={{ width: 100, height: 30, resizeMode: 'contain' }}
+  />
+
+  {/* Barra de pesquisa */}
+  <TextInput
+    placeholder="Buscar"
+    style={{
+      flex: 1,
+      height: 35,
+      marginHorizontal: 10,
+      borderWidth: 1,
+      borderColor: '#ccc',
+      borderRadius: 5,
+      paddingHorizontal: 10
+    }}
+  />
+
+  {/* Ícone de perfil ou carrinho */}
+  <TouchableOpacity>
+    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#000' }}>👤</Text>
+  </TouchableOpacity>
+
+</View>
 
       <Image 
         source={require('../../assets/images/aesthetic.png')}
@@ -18,6 +56,7 @@ export default function Home() {
       <Text style={styles.sectionTitle}>Destaques</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.carousel}>
       <View style={{ alignItems: 'center', marginRight: 10 }}> 
+        
 
         <Image 
            source={{ uri: 'https://www.sephora.com.br/dw/image/v2/BFJC_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/pt_BR/dwd6ee3491/images/Color%20BR/BENEFIT/2024/Mini_Dandelion/s2520492-main-zoom.jpeg?sw=400&sh=400&sm=fit' }} 
@@ -64,9 +103,9 @@ export default function Home() {
       <Text style={{ fontSize: 12, color: '#777', textAlign: 'center', marginTop: 2 }}>
       pó solto givenchy prisme libre
       </Text>
+          </View> 
+           
 
-        
-          </View>
           <View style={{ alignItems: 'center', marginRight: 10 }}> 
          <Image 
           source={{ uri: 'https://www.sephora.com.br/dw/image/v2/BFJC_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/pt_BR/dwa0c0564f/images/Color%20BR/DIOR/2025/atualizar/iluminador_dior_backstage/004/1.%203348901530873.jpg?sw=1200&sh=1200&sm=fit' }} 
@@ -89,8 +128,7 @@ export default function Home() {
       <Text style={{ fontSize: 12, color: '#777', textAlign: 'center', marginTop: 2 }}>
       benetint cheek & lip stain
       </Text>
-
-          </View>
+      </View>
       
        <View style={{ alignItems: 'center', marginRight: 10 }}> 
         <Image 
@@ -104,7 +142,33 @@ export default function Home() {
       </Text>
           </View>
        
+          <View style={{ alignItems: 'center', marginRight: 10 }}> 
+        <Image 
+          source={{ uri: 'https://www.sephora.com.br/dw/image/v2/BFJC_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/pt_BR/dwfe3cf076/images/Color%20BR/RARE%20BEAUTY/luminizer/HIGHLIGHTER-RARE%20BEAUTY-POSITIVE%20LIGHT%20-%20LIQUID%20LUMINIZER%20-%20MESMERIZE840122900105_1500px.jpg?sw=1200&sh=1200&sm=fit' }} 
+          style={{ width: 200, height: 200 }}
+        />  <Text style={{ fontSize:15, fontWeight: 'bold', textAlign: 'center', marginTop: 5 }}>
+      RARE BEAUTY 
+      </Text>
+      <Text style={{ fontSize: 12, color: '#777', textAlign: 'center', marginTop: 2 }}>
+      iluminador líquido rare beauty positive light
+      </Text>
+      
+          </View>
 
+
+          <View style={{ alignItems: 'center', marginRight: 10 }}> 
+        <Image 
+          source={{ uri: 'https://www.sephora.com.br/dw/image/v2/BFJC_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/pt_BR/dw74926545/images/hi-res-BR/Frag/Nova%20pasta/Maria%20Helena/1.3348901683593_1000px.jpg?sw=1200&sh=1200&sm=fit' }} 
+          style={{ width: 200, height: 200 }}
+        />   <Text style={{ fontWeight: 'bold', textAlign: 'center', marginTop: 5 }}>
+        DIOR
+      </Text>
+      <Text style={{ fontSize: 12, color: '#777', textAlign: 'center', marginTop: 2 }}>
+      perfume sólido mini miss dior blooming bouquet feminino eau de toilette
+      </Text>
+          </View> 
+ 
+ 
 
 
       </ScrollView>
@@ -123,9 +187,30 @@ export default function Home() {
       </View>
 
       <Text style={styles.footer}>Inspire-se. Transforme-se.</Text>
+
+      <View style={{
+  marginTop: 40,
+  padding: 20,
+  backgroundColor: '#f5f5f5',
+  alignItems: 'center'
+}}>
+  <Text style={{ fontSize: 12, color: '#555', textAlign: 'center' }}>
+    Desenvolvido por LARA e ANA KEYLE • Contato: ETEREAa@gmail.com
+  </Text>
+  <Text style={{ fontSize: 12, color: '#555', textAlign: 'center', marginTop: 5 }}>
+    © 2025 - Todos os direitos reservados.
+  </Text>
+</View>
+
+
     </ScrollView>
   );
 }
+
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {

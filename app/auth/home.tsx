@@ -48,7 +48,7 @@ export default function Home() {
 </View>
 
       <Image 
-        source={require('../../assets/images/aesthetic.png')}
+        source={require('../../assets/images/banner.png')}
         style={styles.banner}
 
       />
@@ -168,23 +168,53 @@ export default function Home() {
       </Text>
           </View> 
  
- 
-
-
+          <Image 
+    source={{ uri: 'https://s2.glbimg.com/duqOu2XMtOBHOTriEW8bS0v2Tgs=/e.glbimg.com/og/ed/f/original/2014/12/18/164671201.jpg' }} 
+    style={{ width: 100, height: 100, marginBottom: 10, alignSelf: 'center' }}
+  />
       </ScrollView>
 
       <Text style={styles.sectionTitle}>Categorias</Text>
       <View style={styles.categories}>
-        <TouchableOpacity style={styles.categoryButton}>
-          <Text style={styles.categoryText}>Maquiagem</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryButton}>
-          <Text style={styles.categoryText}>Skincare</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryButton}>
-          <Text style={styles.categoryText}>Perfumes</Text>
-        </TouchableOpacity>
+      <View style={{ alignItems: 'center', marginBottom: 20 }}>
+
+      <TouchableOpacity style={styles.categoryButton}>
+    <Text style={styles.categoryText}>Skincare</Text>
+  </TouchableOpacity>
+  <Image 
+    source={{ uri: 'https://t3.ftcdn.net/jpg/04/22/50/10/360_F_422501065_iKBL7qoOhaXqjxONodvSnGmuuwkt7pbf.jpg' }} 
+    style={{ width: 400, height: 400, marginTop: 30 }} 
+  />  </View>
+
+<View style={{ alignItems: 'center', marginBottom: 20 }}>
+  <TouchableOpacity style={styles.categoryButton}>
+    <Text style={styles.categoryText}>Maquiagem</Text>
+  </TouchableOpacity>
+  <Image 
+    source={{ uri: 'https://s2.glbimg.com/duqOu2XMtOBHOTriEW8bS0v2Tgs=/e.glbimg.com/og/ed/f/original/2014/12/18/164671201.jpg' }} 
+    style={{ width: 400, height: 400, marginTop: 30 }} 
+  />
+</View>
+   
+<View style={{ alignItems: 'center', marginBottom: 30 }}>
+  <TouchableOpacity style={styles.categoryButton}>
+    <Text style={styles.categoryText}>Perfumes</Text>
+  </TouchableOpacity>
+  <Image 
+    source={{ uri: 'https://st4.depositphotos.com/13108546/38297/i/450/depositphotos_382978922-stock-photo-portrait-young-beautiful-woman-perfume.jpg' }} 
+    style={{ width: 400, height: 400, marginTop: 30 }} 
+  />
+</View>
+
+
+
+
+
+
+
+
       </View>
+
 
       <Text style={styles.footer}>Inspire-se. Transforme-se.</Text>
 
@@ -195,7 +225,7 @@ export default function Home() {
   alignItems: 'center'
 }}>
   <Text style={{ fontSize: 12, color: '#555', textAlign: 'center' }}>
-    Desenvolvido por LARA e ANA KEYLE • Contato: ETEREAa@gmail.com
+    Desenvolvido por LIARA e ANA KEYLE • Contato: ETEREAa@gmail.com
   </Text>
   <Text style={{ fontSize: 12, color: '#555', textAlign: 'center', marginTop: 5 }}>
     © 2025 - Todos os direitos reservados.
@@ -225,7 +255,9 @@ const styles = StyleSheet.create({
     marginVertical: 16
   },
   banner: {
-    width: 2040, height: 126
+    width: 1040, height: 126,
+     alignSelf: 'center', // <-- ESSENCIAL PARA CENTRALIZAR
+    marginVertical: 10  // Opcional, espaço acima/abaixo
   },
   sectionTitle: {
     fontSize: 22,

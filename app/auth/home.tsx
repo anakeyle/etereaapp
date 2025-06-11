@@ -28,6 +28,7 @@ export default function Home() {
 
   {/* Barra de pesquisa */}
   <TextInput
+<<<<<<< HEAD
     placeholder="Buscar"
     style={{
       flex: 1,
@@ -44,6 +45,27 @@ export default function Home() {
   <TouchableOpacity>
     <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#000' }}>👤</Text>
   </TouchableOpacity>
+=======
+  placeholder="Buscar"
+  placeholderTextColor="#E91E63"
+  style={{
+    flex: 1,
+    height: 40,
+    marginHorizontal: 10,
+    borderWidth: 2,
+    borderColor: '#E91E63',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    color: '#E91E63',
+    backgroundColor: '#fff0f5' // rosa bem claro de fundo
+  }}
+/>
+
+  
+<TouchableOpacity>
+  <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#E91E63' }}>👤</Text>
+</TouchableOpacity>
+>>>>>>> 38b9c7d (finalizaçãoinputestyle)
 
 </View>
 
@@ -255,9 +277,15 @@ const styles = StyleSheet.create({
     marginVertical: 16
   },
   banner: {
+<<<<<<< HEAD
     width: 2040, height: 226,
      alignSelf: 'center', // <-- ESSENCIAL PARA CENTRALIZAR
     marginVertical: 10  // Opcional, espaço acima/abaixo
+=======
+    width: 1040, height: 126,
+     alignSelf: 'center',
+    marginVertical: 10  
+>>>>>>> 38b9c7d (finalizaçãoinputestyle)
   },
   sectionTitle: {
     fontSize: 22,

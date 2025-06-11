@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { 
-  SafeAreaView, 
-  View, 
-  Text, 
-  TextInput, 
-  Button, 
-  StyleSheet, 
-  Alert, 
-  ActivityIndicator 
-} from 'react-native';
 import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  Button,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View
+} from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -30,14 +31,15 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://sua-api.com/endpoint', {
+      const response = await fetch('http://localhost:8000/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: name,
-          email: email,
+          name,
+          email,  
+          password
         }),
       });
 
@@ -47,6 +49,7 @@ export default function App() {
 
       const data = await response.json();
       Alert.alert('Sucesso', 'Dados salvos com sucesso!');
+      router.replace('/auth/home');
       setName('');
       setEmail('');
     } catch (error) {
@@ -78,6 +81,16 @@ export default function App() {
           placeholder="Digite seu email"
           keyboardType="email-address"
           autoCapitalize="none"
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Senha</Text>
+        <TextInput 
+          style={styles.input} 
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Digite sua senha"
+          
         />
       </View>
       <View style={styles.buttonContainer}>

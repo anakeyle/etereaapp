@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'expo-router';
 import { 
   SafeAreaView, 
   View, 
@@ -9,7 +10,6 @@ import {
   Alert, 
   ActivityIndicator 
 } from 'react-native';
-import { useRouter } from 'expo-router';
 
 export default function App() {
   const [name, setName] = useState('');
@@ -17,20 +17,16 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-
   const handleSubmit = async () => {
-    if(!name || !email) {
+    if (!name || !email) {
       Alert.alert('Erro', 'Por favor, preencha nome e email.');
-      router.push('/auth/home');
       return;
     }
-
-  
 
     setLoading(true);
 
     try {
-      const response = await fetch('https://sua-api.com/endpoint', {
+      const response = await fetch('http://localhost:8000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,16 +37,18 @@ export default function App() {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error('Erro na requisição');
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Credenciais inválidas');
       }
 
-      const data = await response.json();
-      Alert.alert('Sucesso', 'Dados salvos com sucesso!');
+      Alert.alert('Sucesso', 'Login realizado!');
       setName('');
       setEmail('');
+      router.replace('/auth/home'); // redireciona para a home
     } catch (error) {
-      Alert.alert('Erro', 'Não foi possível salvar os dados.');
+      Alert.alert('Erro', error.message || 'Não foi possível realizar o login.');
       console.error(error);
     } finally {
       setLoading(false);
